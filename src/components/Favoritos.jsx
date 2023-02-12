@@ -1,10 +1,12 @@
+import { useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import Tweets from "./tweets";
 
 function Favoritos() {
+  const { state } = useLocation();
   return (
     <>
-      <Nav condition= {false}/>
+      <Nav condition= {false} dataUser = {state}/>
       <Tweets />
     </>
   );

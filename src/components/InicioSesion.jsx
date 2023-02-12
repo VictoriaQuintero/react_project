@@ -17,7 +17,10 @@ function InicioSesion() {
     if (datosTotal) {
       datosTotal.map((x) => {
         if (x.Correo == correo && x.Contraseña == contraseña) {
-          navegacion("/inicio");
+            let name = x.Nombre;
+          navegacion("/inicio", {state: {
+            name
+          }});
         } else {
           error = "notFund";
         }
@@ -29,7 +32,7 @@ function InicioSesion() {
 
   return (
     <div>
-      <Nav condition={true} />
+      <Nav condition={true} dataUser = {false} />
       <form onSubmit={ValidarData}>
         <h1>Inicio de Sesión</h1>
         <input

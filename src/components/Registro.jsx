@@ -35,7 +35,7 @@ function Registro() {
 
   return (
     <div>
-      <Nav condition={true} />
+      <Nav condition={true} dataUser = {false} />
       <form onSubmit={DataGuardado}>
         <h1>Registrate</h1>
         <input
