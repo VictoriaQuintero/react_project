@@ -25,19 +25,21 @@ function FormTweet() {
   }, [Totaltweets]);
 
   return (
-    <form onSubmit={guardarData}>
+    <div className="container_form">
+    <form className="formulario" onSubmit={guardarData}>
       <input
         type="text"
         name="tweet"
         placeholder="¿Qué estas pensando?"
-        id=""
+        id="text1"
         onChange={(e) => {
           setTweetBody(e.target.value);
         }}
         required
       />
-      <input type="submit" value="twittear" />
+      <input id="input1" type="submit" value="twittear" />
     </form>
+  </div>
   );
 }
 
