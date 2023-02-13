@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Nav from "./Nav.jsx";
 
 function Registro() {
-    let navegacion = useNavigate();
+  
   const ObtenerData = () => {
     let datosT = localStorage.getItem("Users");
     if (datosT) {
@@ -47,7 +47,7 @@ function Registro() {
           value= {Nombre}
           type="text"
           name="Nombre"
-          placeholder="Nombre"
+          placeholder="Nombre de Usuario"
           onChange={(e) => {
             setNombre(e.target.value);
           }}

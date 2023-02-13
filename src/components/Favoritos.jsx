@@ -7,7 +7,7 @@ function Favoritos() {
   return (
     <div>
       <Nav condition= {false} dataUser = {state}/>
-      <Tweets />
+      <Tweets section = {'favoritos'} />
     </div>
   );
 }

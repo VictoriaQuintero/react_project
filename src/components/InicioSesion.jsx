@@ -5,8 +5,8 @@ import Alertas from "./alerts";
 
 function InicioSesion() {
   let navegacion = useNavigate();
-  const [estilos, setEstilos] = useState('none');
-  const [error, setError] = useState('');
+  const [estilos, setEstilos] = useState("none");
+  const [error, setError] = useState("");
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
 
@@ -16,7 +16,7 @@ function InicioSesion() {
     let datosTotal = localStorage.getItem("Users");
     datosTotal = JSON.parse(datosTotal);
 
-    if (datosTotal) {
+    if (datosTotal && datosTotal[0]) {
       datosTotal.map((x) => {
         if (x.Correo == correo && x.Contraseña == contraseña) {
           let name = x.Nombre;
@@ -26,17 +26,17 @@ function InicioSesion() {
             },
           });
         } else {
-          setCorreo('');
-          setContraseña('');
+          setCorreo("");
+          setContraseña("");
           setError("no encontramos un usuario con esos datos");
-          setEstilos('block');
+          setEstilos("block");
         }
       });
     } else {
-      setCorreo('');
-      setContraseña('');
+      setCorreo("");
+      setContraseña("");
       setError("No hay usuarios registrados, por favor complete el registro");
-      setEstilos('block');
+      setEstilos("block");
     }
   }
 
@@ -46,7 +46,7 @@ function InicioSesion() {
       <form className="formLogin" onSubmit={ValidarData}>
         <h1>Iniciar Sesión</h1>
         <input
-        value={correo}
+          value={correo}
           type="email"
           name="Correo"
           onChange={(e) => {
@@ -55,7 +55,7 @@ function InicioSesion() {
           placeholder="Correo Electronico"
         />
         <input
-        value={contraseña}
+          value={contraseña}
           type="password"
           name="Contraseña"
           onChange={(e) => {
@@ -71,7 +71,7 @@ function InicioSesion() {
           </Link>
         </p>
       </form>
-      <Alertas Error ={error} Estilos = {estilos}/>
+      <Alertas Error={error} Estilos={estilos} />
     </div>
   );
 }

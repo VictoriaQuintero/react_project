@@ -8,8 +8,8 @@ function Perfil() {
   return (
     <div>
       <Nav  condition= {false} dataUser ={state}/>
-      <FormTweet/>
-      <Tweets/>
+      <FormTweet dataUser={state}/>
+      <Tweets section = {'perfil'}/>
     </div>
   );
 }

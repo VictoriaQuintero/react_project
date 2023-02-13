@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
-function FormTweet() {
+function FormTweet({dataUser}) {
 
   function GetDatos(){
     let DataT = localStorage.getItem('Totaltweets');
@@ -12,11 +13,18 @@ function FormTweet() {
   }
 
   const [Totaltweets, setTotaltweets] = useState(GetDatos());
+
   const [TweetBody, setTweetBody] = useState("");
 
   const guardarData = (e) => {
     e.preventDefault();
-    let data = { TweetBody };
+    let time = new Date();
+    let data = {
+      id : uuidv4(),
+      usuario : dataUser.name, 
+      fecha : time.toLocaleDateString('en-US'),
+      TweetBody 
+    };
     setTotaltweets([...Totaltweets, data]);
   };
 
