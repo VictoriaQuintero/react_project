@@ -27,6 +27,9 @@ function Registro() {
       Contraseña,
     };
     setUsers([...Users, datos]);
+    setNombre('');
+    setCorreo('');
+    setContraseña('');
   }
 
   useEffect(() => {
@@ -41,6 +44,7 @@ function Registro() {
       <form className="formLogin formRegistro" onSubmit={DataGuardado}>
         <h1>Registrate</h1>
         <input
+          value= {Nombre}
           type="text"
           name="Nombre"
           placeholder="Nombre"
@@ -51,6 +55,7 @@ function Registro() {
           required
         />
         <input
+        value={Correo}
           type="email"
           name="Correo"
           placeholder="Correo Electronico"
@@ -61,6 +66,7 @@ function Registro() {
           required
         />
         <input
+        value={Contraseña}
           type="password"
           name="Contraseña"
           placeholder="Contraseña"
