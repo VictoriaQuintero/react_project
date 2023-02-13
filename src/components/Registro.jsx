@@ -34,9 +34,11 @@ function Registro() {
   }, [Users]);
 
   return (
-    <div>
+    <div className="App container_registros">
+
       <Nav condition={true} dataUser = {false} />
-      <form onSubmit={DataGuardado}>
+
+      <form className="formLogin formRegistro" onSubmit={DataGuardado}>
         <h1>Registrate</h1>
         <input
           type="text"
@@ -68,7 +70,7 @@ function Registro() {
           id="3"
           required
         />
-          <input type="submit" value="Comenzar" />
+          <input className="input2" type="submit" value="Comenzar" />
         <p>
           Ya tengo una cuenta,
           <Link to={"/"}>

@@ -31,10 +31,10 @@ function InicioSesion() {
   }
 
   return (
-    <div>
+    <div className="Login">
       <Nav condition={true} dataUser = {false} />
-      <form onSubmit={ValidarData}>
-        <h1>Inicio de Sesión</h1>
+      <form className="formLogin" onSubmit={ValidarData}>
+        <h1>Iniciar Sesión</h1>
         <input
           type="email"
           name="Correo"
@@ -51,11 +51,11 @@ function InicioSesion() {
           }}
           placeholder="Contraseña"
         />
-        <input type="submit" value="Comenzar" />
+        <input className="input2" type="submit" value="Comenzar" />
         <p>
-          No tengo una cuenta,
+          No tengo una cuenta, 
           <Link to={"/registro"}>
-            <strong>Registrarme</strong>
+            <strong> Registrarme</strong>
           </Link>
         </p>
       </form>

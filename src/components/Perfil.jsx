@@ -6,11 +6,11 @@ import Tweets from "./tweets";
 function Perfil() {
   const { state } = useLocation();
   return (
-    <>
+    <div>
       <Nav  condition= {false} dataUser ={state}/>
       <FormTweet/>
       <Tweets/>
-    </>
+    </div>
   );
 }
 
