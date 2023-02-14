@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Tweets from './tweets';
 
-function FormTweet({ dataUser }) {
+function FormTweet({ dataUser, seccion}) {
   function GetDatos() {
     let DataT = localStorage.getItem('Totaltweets');
     if (DataT) {
@@ -24,6 +24,7 @@ function FormTweet({ dataUser }) {
       usuario: dataUser.name,
       fecha: time.toLocaleDateString('en-US'),
       TweetBody,
+      favorito: false
     };
     setTotaltweets([...Totaltweets, data]);
   };
@@ -49,7 +50,7 @@ function FormTweet({ dataUser }) {
           <input id='input1' type='submit' value='twittear' />
         </form>
       </div>
-      <Tweets tweets={Totaltweets} section={'inicio'} />
+      <Tweets seccion = {seccion} tweets={Totaltweets} setTweet={setTotaltweets} section={'inicio'} />
     </>
   );
 }
