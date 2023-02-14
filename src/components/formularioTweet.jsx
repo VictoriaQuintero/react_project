@@ -1,53 +1,56 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Tweets from './tweets';
 
-function FormTweet({dataUser}) {
-
-  function GetDatos(){
+function FormTweet({ dataUser }) {
+  function GetDatos() {
     let DataT = localStorage.getItem('Totaltweets');
-    if(DataT){
+    if (DataT) {
       return JSON.parse(DataT);
-    }else{
+    } else {
       return [];
     }
   }
 
   const [Totaltweets, setTotaltweets] = useState(GetDatos());
 
-  const [TweetBody, setTweetBody] = useState("");
+  const [TweetBody, setTweetBody] = useState('');
 
   const guardarData = (e) => {
     e.preventDefault();
     let time = new Date();
     let data = {
-      id : uuidv4(),
-      usuario : dataUser.name, 
-      fecha : time.toLocaleDateString('en-US'),
-      TweetBody 
+      id: uuidv4(),
+      usuario: dataUser.name,
+      fecha: time.toLocaleDateString('en-US'),
+      TweetBody,
     };
     setTotaltweets([...Totaltweets, data]);
   };
 
   useEffect(() => {
-    localStorage.setItem("Totaltweets", JSON.stringify(Totaltweets));
+    localStorage.setItem('Totaltweets', JSON.stringify(Totaltweets));
   }, [Totaltweets]);
 
   return (
-    <div className="container_form">
-    <form className="formulario" onSubmit={guardarData}>
-      <input
-        type="text"
-        name="tweet"
-        placeholder="¿Qué estas pensando?"
-        id="text1"
-        onChange={(e) => {
-          setTweetBody(e.target.value);
-        }}
-        required
-      />
-      <input id="input1" type="submit" value="twittear" />
-    </form>
-  </div>
+    <>
+      <div className='container_form'>
+        <form className='formulario' onSubmit={guardarData} id='formulario-aja'>
+          <input
+            type='text'
+            name='tweet'
+            placeholder='¿Qué estas pensando?'
+            id='text1'
+            onChange={(e) => {
+              setTweetBody(e.target.value);
+            }}
+            required
+          />
+          <input id='input1' type='submit' value='twittear' />
+        </form>
+      </div>
+      <Tweets tweets={Totaltweets} section={'inicio'} />
+    </>
   );
 }
 
